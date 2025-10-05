@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,9 +17,15 @@
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background: #0a0a0a;
+            background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e);
             color: white;
-            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
         
         .hero {
@@ -28,11 +34,16 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./assets/tech-bg-DmoAx29Y.jpg');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(45deg, #7c3aed, #ec4899, #06b6d4);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
             position: relative;
-            padding: 2rem;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .hero::before {
@@ -42,63 +53,55 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 20%, rgba(147, 51, 234, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.3) 0%, transparent 50%);
+            background: rgba(0, 0, 0, 0.3);
         }
         
         .hero-content {
             position: relative;
             z-index: 10;
-            max-width: 1200px;
         }
         
         .main-title {
-            font-size: clamp(2rem, 8vw, 8rem);
+            font-size: clamp(2rem, 8vw, 6rem);
             font-weight: 900;
-            background: linear-gradient(45deg, #a855f7, #ec4899, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 2rem;
-            text-shadow: 0 0 50px rgba(168, 85, 247, 0.5);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
             line-height: 1.1;
         }
         
         .subtitle {
-            font-size: clamp(1rem, 3vw, 2rem);
+            font-size: clamp(1rem, 3vw, 1.5rem);
             margin-bottom: 3rem;
-            color: #e5e7eb;
             font-weight: 600;
+            opacity: 0.9;
         }
         
-        .cta-button {
+        .btn {
             display: inline-block;
-            background: linear-gradient(45deg, #7c3aed, #ec4899, #7c3aed);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             color: white;
             padding: 1.5rem 3rem;
-            border-radius: 2rem;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
             font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.4);
-            border: 2px solid rgba(168, 85, 247, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
         }
         
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 30px 60px rgba(124, 58, 237, 0.6);
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
         
         .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 5rem 0;
         }
         
         .section-title {
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
             text-align: center;
             margin-bottom: 3rem;
@@ -108,87 +111,42 @@
             background-clip: text;
         }
         
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-        
-        .feature-card {
-            background: linear-gradient(135deg, rgba(30, 30, 30, 0.8), rgba(50, 50, 50, 0.8));
-            padding: 2rem;
-            border-radius: 1.5rem;
-            border: 2px solid rgba(168, 85, 247, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .feature-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #a855f7;
-        }
-        
-        .program-day {
-            background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(50, 50, 50, 0.9));
-            margin-bottom: 1.5rem;
-            border-radius: 1.5rem;
-            border: 2px solid rgba(168, 85, 247, 0.3);
-            overflow: hidden;
-        }
-        
-        .day-header {
-            padding: 2rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(45deg, rgba(124, 58, 237, 0.2), rgba(236, 72, 153, 0.2));
-        }
-        
-        .day-number {
-            background: linear-gradient(45deg, #7c3aed, #ec4899);
-            color: white;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-        
-        .day-title {
-            flex: 1;
-            margin-left: 1.5rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-        
-        .testimonials {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
         
-        .testimonial {
-            background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(50, 50, 50, 0.9));
+        .card {
+            background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
-            border-radius: 1.5rem;
-            border: 2px solid rgba(6, 182, 212, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card h3 {
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #4ecdc4;
         }
         
         .testimonial-author {
             font-weight: 700;
-            color: #06b6d4;
+            color: #4ecdc4;
             margin-bottom: 0.5rem;
         }
         
@@ -205,17 +163,22 @@
         }
         
         .price-card {
-            background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(50, 50, 50, 0.9));
+            background: rgba(255, 255, 255, 0.1);
             padding: 3rem 2rem;
-            border-radius: 2rem;
+            border-radius: 20px;
             text-align: center;
-            border: 2px solid rgba(168, 85, 247, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .price-card:hover {
+            transform: scale(1.05);
         }
         
         .price-card.popular {
-            border-color: #ec4899;
-            transform: scale(1.05);
+            border-color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
         }
         
         .price-card.popular::before {
@@ -224,9 +187,9 @@
             top: -1rem;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(45deg, #ec4899, #f97316);
+            background: linear-gradient(45deg, #ff6b6b, #f97316);
             padding: 0.5rem 1.5rem;
-            border-radius: 2rem;
+            border-radius: 25px;
             font-weight: 700;
             font-size: 0.9rem;
         }
@@ -234,60 +197,52 @@
         .price {
             font-size: 3rem;
             font-weight: 900;
-            color: #a855f7;
+            color: #4ecdc4;
             margin: 1rem 0;
         }
         
         .price-old {
             text-decoration: line-through;
-            color: #6b7280;
+            color: #999;
             font-size: 1.5rem;
         }
         
         .footer {
-            background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.95));
-            padding: 3rem 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3rem 0;
             text-align: center;
-            border-top: 2px solid rgba(168, 85, 247, 0.3);
         }
         
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             text-align: left;
+            margin-bottom: 2rem;
         }
         
-        .footer-section h3 {
-            color: #a855f7;
+        .footer h3 {
+            color: #4ecdc4;
             margin-bottom: 1rem;
         }
         
-        .footer-section p {
-            color: #9ca3af;
+        .footer p {
+            color: #ccc;
             font-size: 0.9rem;
-            line-height: 1.6;
+            margin-bottom: 0.5rem;
         }
         
         @media (max-width: 768px) {
-            .hero {
-                padding: 1rem;
-            }
-            
-            .section {
-                padding: 3rem 1rem;
-            }
-            
-            .features-grid,
-            .testimonials,
-            .pricing {
+            .grid, .pricing {
                 grid-template-columns: 1fr;
             }
             
             .price-card.popular {
                 transform: none;
+            }
+            
+            .price-card.popular:hover {
+                transform: scale(1.02);
             }
         }
     </style>
@@ -296,240 +251,211 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="main-title" id="typing-text">5 ЛЕГКИХ И БЫСТРЫХ ПОБЕД С ИИ</h1>
+            <h1 class="main-title">5 ЛЕГКИХ И БЫСТРЫХ ПОБЕД С ИИ</h1>
             <p class="subtitle">За неделю создаёшь систему: профиль, аудитория, лид-магнит, контент и бот — всё с помощью ИИ.</p>
-            <a href="#pricing" class="cta-button">🚀 Хочу свои 5 быстрых побед</a>
+            <a href="#pricing" class="btn">🚀 Хочу свои 5 быстрых побед</a>
         </div>
     </section>
 
     <!-- For Who Section -->
     <section class="section">
-        <h2 class="section-title">Для тех, кто хочет больше времени и дохода</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">❌ Тонешь в рутине</h3>
-                <p>✅ ИИ ускоряет работу в 3 раза</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⏰</div>
-                <h3 class="feature-title">❌ Нет времени на стратегию</h3>
-                <p>✅ Высвобождаешь часы и энергию</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3 class="feature-title">❌ Работаешь дёшево</h3>
-                <p>✅ Повышаешь цену и ценность</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3 class="feature-title">❌ Контент не продаёт</h3>
-                <p>✅ Превращаешь его в инструмент продаж</p>
+        <div class="container">
+            <h2 class="section-title">Для тех, кто хочет больше времени и дохода</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>❌ Тонешь в рутине</h3>
+                    <p>✅ ИИ ускоряет работу в 3 раза</p>
+                </div>
+                <div class="card">
+                    <h3>❌ Нет времени на стратегию</h3>
+                    <p>✅ Высвобождаешь часы и энергию</p>
+                </div>
+                <div class="card">
+                    <h3>❌ Работаешь дёшево</h3>
+                    <p>✅ Повышаешь цену и ценность</p>
+                </div>
+                <div class="card">
+                    <h3>❌ Контент не продаёт</h3>
+                    <p>✅ Превращаешь его в инструмент продаж</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Program Section -->
     <section class="section">
-        <h2 class="section-title">Программа марафона «5 быстрых побед с ИИ»</h2>
-        <p style="text-align: center; margin-bottom: 2rem; font-size: 1.2rem;">👆 Кликните на любой день чтобы увидеть подробную программу</p>
-        
-        <div class="program-day">
-            <div class="day-header">
-                <div class="day-number">1</div>
-                <div class="day-title">Победа №1 — Аудит и переупаковка профиля + визуал</div>
-            </div>
-        </div>
-        
-        <div class="program-day">
-            <div class="day-header">
-                <div class="day-number">2</div>
-                <div class="day-title">Победа №2 — Анализ аудитории и конкурентов</div>
-            </div>
-        </div>
-        
-        <div class="program-day">
-            <div class="day-header">
-                <div class="day-number">3</div>
-                <div class="day-title">Победа №3 — Лид-магнит + мини-воронка</div>
-            </div>
-        </div>
-        
-        <div class="program-day">
-            <div class="day-header">
-                <div class="day-number">4</div>
-                <div class="day-title">Победа №4 — Контент как продукт</div>
-            </div>
-        </div>
-        
-        <div class="program-day">
-            <div class="day-header">
-                <div class="day-number">5</div>
-                <div class="day-title">Победа №5 — Бот на ИИ + VibeCoding</div>
+        <div class="container">
+            <h2 class="section-title">Программа марафона «5 быстрых побед с ИИ»</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>День 1: Аудит и переупаковка профиля</h3>
+                    <p>Инструменты: ChatGPT, NaNoBanana, Gamma</p>
+                </div>
+                <div class="card">
+                    <h3>День 2: Анализ аудитории и конкурентов</h3>
+                    <p>Инструменты: ChatGPT, Perplexity</p>
+                </div>
+                <div class="card">
+                    <h3>День 3: Лид-магнит + мини-воронка</h3>
+                    <p>Инструменты: ChatGPT, Gamma, ChatPlace</p>
+                </div>
+                <div class="card">
+                    <h3>День 4: Контент как продукт</h3>
+                    <p>Инструменты: ChatGPT, NaNoBanana, Midjourney, HiggsField</p>
+                </div>
+                <div class="card">
+                    <h3>День 5: Бот на ИИ + VibeCoding</h3>
+                    <p>Инструменты: ChatGPT, SendPulse, Manus</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="section">
-        <h2 class="section-title">Реальные результаты наших участников 🚀</h2>
-        <div class="testimonials">
-            <div class="testimonial">
-                <div class="testimonial-author">Анна К.</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Это просто капец! +2700 подписчиков и 45 продаж за сутки! Майя, ты волшебница! 🔥"</p>
-                <div style="margin-top: 1rem; color: #10b981; font-weight: 700;">📈 +2700 подписчиков</div>
-            </div>
-            
-            <div class="testimonial">
-                <div class="testimonial-author">Дмитрий М.</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Тебе отдельный большущий респект за продвижение этой темы. Реально работает!"</p>
-                <div style="margin-top: 1rem; color: #10b981; font-weight: 700;">📈 73 заявки за 48 часов</div>
-            </div>
-            
-            <div class="testimonial">
-                <div class="testimonial-author">Наталья С.</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Огромная благодарность за сегодняшний день. Вы буквально открыли дверь в новый мир возможностей! ✨"</p>
-                <div style="margin-top: 1rem; color: #10b981; font-weight: 700;">📈 Автоматизация на 80%</div>
-            </div>
-            
-            <div class="testimonial">
-                <div class="testimonial-author">Елена В.</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Само обучение оно офигенное! Спасибо за интересную подачу и материал. Уже внедряю! 💪"</p>
-                <div style="margin-top: 1rem; color: #10b981; font-weight: 700;">📈 Доход вырос в 3 раза</div>
+        <div class="container">
+            <h2 class="section-title">Реальные результаты наших участников 🚀</h2>
+            <div class="grid">
+                <div class="testimonial">
+                    <div class="testimonial-author">Анна К.</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Это просто капец! +2700 подписчиков и 45 продаж за сутки! Майя, ты волшебница! 🔥"</p>
+                    <div style="margin-top: 1rem; color: #4ecdc4; font-weight: 700;">📈 +2700 подписчиков</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">Дмитрий М.</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Тебе отдельный большущий респект за продвижение этой темы. Реально работает!"</p>
+                    <div style="margin-top: 1rem; color: #4ecdc4; font-weight: 700;">📈 73 заявки за 48 часов</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">Наталья С.</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Огромная благодарность за сегодняшний день. Вы буквально открыли дверь в новый мир возможностей! ✨"</p>
+                    <div style="margin-top: 1rem; color: #4ecdc4; font-weight: 700;">📈 Автоматизация на 80%</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">Елена В.</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Само обучение оно офигенное! Спасибо за интересную подачу и материал. Уже внедряю! 💪"</p>
+                    <div style="margin-top: 1rem; color: #4ecdc4; font-weight: 700;">📈 Доход вырос в 3 раза</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
     <section class="section" id="pricing">
-        <h2 class="section-title">Тарифы и цены</h2>
-        <div class="pricing">
-            <div class="price-card">
-                <h3>Бесплатный</h3>
-                <div class="price-old">$25 (1 990 ₽)</div>
-                <div class="price">$0</div>
-                <ul style="text-align: left; margin: 2rem 0;">
-                    <li>• Доступ к марафону</li>
-                    <li>• Базовые материалы</li>
-                    <li>• Общий чат</li>
-                </ul>
-                <a href="https://sbsite.pro//five_free_1" target="_blank" class="cta-button">Мне хватит бесплатного</a>
-            </div>
-            
-            <div class="price-card popular">
-                <h3>Полный доступ</h3>
-                <div class="price-old">$70 (5 990 ₽)</div>
-                <div class="price">$12 <span style="font-size: 1rem;">(990 ₽)</span></div>
-                <ul style="text-align: left; margin: 2rem 0;">
-                    <li>✅ Все материалы марафона</li>
-                    <li>✅ Готовые промпты и шаблоны</li>
-                    <li>✅ Мини-гайд по автоматизации</li>
-                    <li>✅ Персональная поддержка</li>
-                    <li>✅ Закрытый VIP-чат</li>
-                    <li>✅ Бонусные материалы</li>
-                    <li>✅ Доступ к записям навсегда</li>
-                </ul>
-                <a href="https://sbsite.pro//five_pay_1" target="_blank" class="cta-button">💎 Беру полный доступ, хочу максимум</a>
+        <div class="container">
+            <h2 class="section-title">Тарифы и цены</h2>
+            <div class="pricing">
+                <div class="price-card">
+                    <h3>Бесплатный</h3>
+                    <div class="price-old">$25 (1 990 ₽)</div>
+                    <div class="price">$0</div>
+                    <ul style="text-align: left; margin: 2rem 0;">
+                        <li>• Доступ к марафону</li>
+                        <li>• Базовые материалы</li>
+                        <li>• Общий чат</li>
+                    </ul>
+                    <a href="https://sbsite.pro//five_free_1" target="_blank" class="btn">Мне хватит бесплатного</a>
+                </div>
+                
+                <div class="price-card popular">
+                    <h3>Полный доступ</h3>
+                    <div class="price-old">$70 (5 990 ₽)</div>
+                    <div class="price">$12 <span style="font-size: 1rem;">(990 ₽)</span></div>
+                    <ul style="text-align: left; margin: 2rem 0;">
+                        <li>✅ Все материалы марафона</li>
+                        <li>✅ Готовые промпты и шаблоны</li>
+                        <li>✅ Мини-гайд по автоматизации</li>
+                        <li>✅ Персональная поддержка</li>
+                        <li>✅ Закрытый VIP-чат</li>
+                        <li>✅ Бонусные материалы</li>
+                        <li>✅ Доступ к записям навсегда</li>
+                    </ul>
+                    <a href="https://sbsite.pro//five_pay_1" target="_blank" class="btn">💎 Беру полный доступ</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Maya Section -->
     <section class="section">
-        <h2 class="section-title">🏆 Майя Галицкая</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
-            <div>
-                <img src="./assets/maya-photo-new-L5B8lg7L.jpg" alt="Майя Галицкая" style="width: 100%; max-width: 400px; border-radius: 2rem; border: 3px solid #a855f7;">
-            </div>
-            <div>
-                <h3 style="color: #a855f7; margin-bottom: 1rem;">🎓 Образование и опыт</h3>
-                <ul style="margin-bottom: 2rem;">
-                    <li>• Эксперт по нейросетям и маркетингу</li>
-                    <li>• Преподаватель ДГТУ, РАНХиГС</li>
-                    <li>• Тренер MBA</li>
-                    <li>• Руководитель AI-агентства</li>
-                    <li>• Создатель авторских курсов по ИИ</li>
-                </ul>
-                
-                <h3 style="color: #a855f7; margin-bottom: 1rem;">📊 Достижения</h3>
-                <ul>
-                    <li>• 15 лет в маркетинге</li>
-                    <li>• 2,5 года глубокой практики ИИ</li>
-                    <li>• 10 000+ успешных учеников</li>
-                    <li>• 500+ внедренных ИИ-решений</li>
-                    <li>• Спикер международных конференций</li>
-                </ul>
-                
-                <blockquote style="margin-top: 2rem; padding: 1rem; background: rgba(168, 85, 247, 0.1); border-left: 4px solid #a855f7; font-style: italic;">
-                    «Я не рассказываю «про нейросети». Я показываю, как они приносят деньги и экономят время.»
-                </blockquote>
+        <div class="container">
+            <h2 class="section-title">🏆 Майя Галицкая</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
+                <div>
+                    <img src="./assets/maya-photo-new-L5B8lg7L.jpg" alt="Майя Галицкая" style="width: 100%; max-width: 400px; border-radius: 20px; border: 3px solid #4ecdc4;">
+                </div>
+                <div>
+                    <h3 style="color: #4ecdc4; margin-bottom: 1rem;">🎓 Образование и опыт</h3>
+                    <ul style="margin-bottom: 2rem;">
+                        <li>• Эксперт по нейросетям и маркетингу</li>
+                        <li>• Преподаватель ДГТУ, РАНХиГС</li>
+                        <li>• Тренер MBA</li>
+                        <li>• Руководитель AI-агентства</li>
+                        <li>• Создатель авторских курсов по ИИ</li>
+                    </ul>
+                    
+                    <h3 style="color: #4ecdc4; margin-bottom: 1rem;">📊 Достижения</h3>
+                    <ul>
+                        <li>• 15 лет в маркетинге</li>
+                        <li>• 2,5 года глубокой практики ИИ</li>
+                        <li>• 10 000+ успешных учеников</li>
+                        <li>• 500+ внедренных ИИ-решений</li>
+                        <li>• Спикер международных конференций</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Final CTA Section -->
-    <section class="section" style="text-align: center; background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1)); border-radius: 2rem; margin: 3rem auto;">
-        <h2 style="font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 1rem;">🚀 После марафона рост X2 — неизбежен! 🚀</h2>
-        <p style="font-size: 1.5rem; margin-bottom: 2rem;">Система работает автоматически, результаты растут экспоненциально</p>
-        <a href="#pricing" class="cta-button" style="font-size: 1.5rem; padding: 2rem 4rem;">💰 Хочу войти в число тех, кто реально делает деньги</a>
+    <section class="section" style="background: rgba(255, 107, 107, 0.1); border-radius: 20px; margin: 3rem auto;">
+        <div class="container" style="text-align: center;">
+            <h2 style="font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 1rem;">🚀 После марафона рост X2 — неизбежен! 🚀</h2>
+            <p style="font-size: 1.5rem; margin-bottom: 2rem;">Система работает автоматически, результаты растут экспоненциально</p>
+            <a href="#pricing" class="btn" style="font-size: 1.5rem; padding: 2rem 4rem;">💰 Хочу войти в число тех, кто реально делает деньги</a>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Реквизиты ИП</h3>
-                <p><strong>ИП:</strong> Галицкая Майя Вячеславовна</p>
-                <p><strong>Адрес:</strong> 347927, Россия, Ростовская обл., г. Ростов-на-Дону, ул. Варфоломеева 274, кв. 9</p>
-                <p><strong>ИНН:</strong> 615490332205</p>
-                <p><strong>ОГРН:</strong> 320619600155953</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Реквизиты ИП</h3>
+                    <p><strong>ИП:</strong> Галицкая Майя Вячеславовна</p>
+                    <p><strong>Адрес:</strong> 347927, Россия, Ростовская обл., г. Ростов-на-Дону, ул. Варфоломеева 274, кв. 9</p>
+                    <p><strong>ИНН:</strong> 615490332205</p>
+                    <p><strong>ОГРН:</strong> 320619600155953</p>
+                </div>
+                
+                <div>
+                    <h3>Банковские реквизиты</h3>
+                    <p><strong>Расчетный счет:</strong> 40802810300001648384</p>
+                    <p><strong>Банк:</strong> АО "ТИНЬКОФФ БАНК"</p>
+                    <p><strong>ИНН банка:</strong> 7710140679</p>
+                    <p><strong>БИК банка:</strong> 044525974</p>
+                    <p><strong>Корр. счет:</strong> 30101810145250000974</p>
+                </div>
             </div>
             
-            <div class="footer-section">
-                <h3>Банковские реквизиты</h3>
-                <p><strong>Расчетный счет:</strong> 40802810300001648384</p>
-                <p><strong>Банк:</strong> АО "ТИНЬКОФФ БАНК"</p>
-                <p><strong>ИНН банка:</strong> 7710140679</p>
-                <p><strong>БИК банка:</strong> 044525974</p>
-                <p><strong>Корр. счет:</strong> 30101810145250000974</p>
-                <p><strong>Адрес банка:</strong> Москва, 127287, ул. Хуторская 2-я, д. 38А, стр. 26</p>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                <p>
+                    <a href="#" style="color: #4ecdc4; text-decoration: none;">Политика конфиденциальности</a> | 
+                    <a href="#" style="color: #4ecdc4; text-decoration: none;">Договор оферты</a>
+                </p>
+                <p style="margin-top: 1rem;">© 2025 ИП Галицкая Майя Вячеславовна. Все права защищены.</p>
             </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(168, 85, 247, 0.3);">
-            <p style="color: #6b7280;">
-                <a href="#" style="color: #a855f7; text-decoration: none;">Политика конфиденциальности</a> | 
-                <a href="#" style="color: #a855f7; text-decoration: none;">Договор оферты</a>
-            </p>
-            <p style="margin-top: 1rem; color: #6b7280;">© 2025 ИП Галицкая Майя Вячеславовна. Все права защищены.</p>
         </div>
     </footer>
 
     <script>
-        // Typing effect
-        const text = "5 ЛЕГКИХ И БЫСТРЫХ ПОБЕД С ИИ";
-        const typingElement = document.getElementById('typing-text');
-        let index = 0;
-        
-        function typeText() {
-            if (index < text.length) {
-                typingElement.textContent = text.slice(0, index + 1) + '|';
-                index++;
-                setTimeout(typeText, 100);
-            } else {
-                typingElement.textContent = text;
-            }
-        }
-        
-        // Start typing effect when page loads
-        window.addEventListener('load', () => {
-            setTimeout(typeText, 500);
-        });
-        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
