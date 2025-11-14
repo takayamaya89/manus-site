@@ -91,19 +91,19 @@
             font-size: clamp(1.8rem, 5vw, 3rem);
             margin-bottom: 2rem;
             font-weight: 900;
-            color: #ff006e;
-            text-shadow: 0 0 40px rgba(255, 0, 110, 0.8);
-            animation: accentGlow 3s ease-in-out infinite alternate;
+            color: #ffffff;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 0, 110, 0.5);
+            animation: accentGlow 2s ease-in-out infinite alternate;
         }
         
         @keyframes accentGlow {
             0% { 
-                text-shadow: 0 0 40px rgba(255, 0, 110, 0.8);
+                text-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 0, 110, 0.5);
                 transform: scale(1);
             }
             100% { 
-                text-shadow: 0 0 60px rgba(255, 0, 110, 1), 0 0 100px rgba(255, 0, 110, 0.4);
-                transform: scale(1.02);
+                text-shadow: 0 0 60px rgba(255, 255, 255, 1), 0 0 100px rgba(255, 0, 110, 0.6), 0 0 150px rgba(138, 43, 226, 0.3);
+                transform: scale(1.05);
             }
         }
         
@@ -829,7 +829,7 @@
                 </div>
                 
                 <div class="program-card" style="background: linear-gradient(135deg, rgba(255, 0, 110, 0.15), rgba(138, 43, 226, 0.15)); border: 3px solid #ff006e; position: relative;">
-                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(45deg, #ff006e, #8a2be2); padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: 900; font-size: 0.9rem; letter-spacing: 1px; box-shadow: 0 5px 20px rgba(255, 0, 110, 0.4);">🎁 БОНУС</div>
+                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(45deg, #ff006e, #8a2be2); padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: 900; font-size: 0.9rem; letter-spacing: 1px; box-shadow: 0 5px 20px rgba(255, 0, 110, 0.4); color: #ffffff;">🎁 БОНУС</div>
                     <div class="program-day" style="margin-top: 1rem;">БОНУСНЫЙ УРОК</div>
                     <div class="program-title" style="background: linear-gradient(45deg, #ff006e, #8a2be2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Экспресс-запуск</div>
                     <div class="program-description" style="font-weight: 600;">Быстрая и точная система запуска продукта или услуги за 3-5 дней с НУЛЯ! Естественно, с нейросетями! Только для участников с полным доступом.</div>
@@ -894,8 +894,9 @@
                 
                 <div class="price-card popular">
                     <h3>🔸 Полный доступ</h3>
-                    <div class="price-old">70 $ (5 990 ₽)</div>
-                    <div class="price">1490 ₽</div>
+                    <div class="price-old">70 $</div>
+                    <div class="price">12 $</div>
+                    <div style="font-size: 1.5rem; color: #999; margin-top: -1rem; margin-bottom: 1.5rem;">(1490 ₽)</div>
                     <div class="price-description">Для тех, кто хочет результат, систему и поддержку — не на неделю, а навсегда.</div>
                     <ul>
                         <li>💡 Доступ на год ко всем видео и материалам</li>
