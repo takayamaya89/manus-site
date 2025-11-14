@@ -1,47 +1,736 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💥 5 побед с ИИ — Марафон для создания системы продаж</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>5 быстрых побед с ИИ — реальные результаты за 5 дней</title>
-    <!-- INOVA MEDIA Pixel Code -->
-    <script>
-        !function (i, n, o, v, a) {
-            if(i.ipx)return;v=i.ipx=function(){v.callMethod?
-                v.callMethod.apply(v,arguments):v.queue.push(arguments)};
-            if(!i._ipx)i._ipx=v;v.push=v;v.loaded=!0;
-            v.queue=[];a = n.createElement('script');a.defer = !0;
-            a.src = o;n.currentScript.parentNode.appendChild(a);
-        }(window, document, 'https://leads.inovamedia.net/static/pixel.js');
-        ipx('init', 'pk_qHpqEkeBUP0CBvBLejS7', {pixelId: '3757375884564612'});
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #000 0%, #1a0033 50%, #ff006e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 0, 110, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.3) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .main-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #fff, #ff006e, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 50px rgba(255, 0, 110, 0.5);
+            line-height: 1;
+        }
+        
+        .subtitle {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-accent {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 3rem;
+            font-weight: 900;
+            color: #ff006e;
+            text-shadow: 0 0 30px rgba(255, 0, 110, 0.8);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            0% { text-shadow: 0 0 30px rgba(255, 0, 110, 0.8); }
+            100% { text-shadow: 0 0 50px rgba(255, 0, 110, 1), 0 0 80px rgba(255, 0, 110, 0.6); }
+        }
+        
+        .hero-subtext {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: 3rem;
+            font-weight: 700;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff006e, #8a2be2);
+            color: white;
+            padding: 2rem 4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.3);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(255, 0, 110, 0.5);
+            background: linear-gradient(45deg, #8a2be2, #ff006e);
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #fff, #ff006e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* What Is This Section */
+        .what-section {
+            background: linear-gradient(135deg, #1a0033, #000);
+            padding: 6rem 0;
+        }
+        
+        .what-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .what-content p {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .what-content ul {
+            list-style: none;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            text-align: left;
+            margin: 2rem 0;
+        }
+        
+        .what-content li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .what-content li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            color: #ff006e;
+        }
+        
+        /* Program Section */
+        .program-section {
+            background: #000;
+            padding: 6rem 0;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .program-card {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(138, 43, 226, 0.1));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 0, 110, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff006e;
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.2);
+        }
+        
+        .program-day {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #ff006e;
+            margin-bottom: 1rem;
+        }
+        
+        .program-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .program-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .program-tools {
+            font-size: 0.9rem;
+            color: #8a2be2;
+            font-weight: 600;
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            background: linear-gradient(135deg, #1a0033, #000);
+            padding: 6rem 0;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .price-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .price-card.popular {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(138, 43, 226, 0.1));
+            border: 3px solid #ff006e;
+            transform: scale(1.05);
+        }
+        
+        .price-card.popular::before {
+            content: '🔥 ПОПУЛЯРНЫЙ ВЫБОР';
+            position: absolute;
+            top: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #ff006e, #8a2be2);
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: 900;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .price-card h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        
+        .price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ff006e;
+            margin: 1.5rem 0;
+        }
+        
+        .price-old {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .price-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 2rem 0;
+        }
+        
+        .price-card li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .price-card li::before {
+            content: '💡';
+            position: absolute;
+            left: 0;
+        }
+        
+        .price-card.popular li::before {
+            content: '✨';
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            background: #000;
+            padding: 6rem 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .testimonial {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.05), rgba(138, 43, 226, 0.05));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border-left: 4px solid #ff006e;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-author {
+            font-weight: 900;
+            color: #ff006e;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-result {
+            color: #8a2be2;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Target Audience Section */
+        .target-section {
+            background: linear-gradient(135deg, #1a0033, #000);
+            padding: 6rem 0;
+        }
+        
+        .target-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .target-list {
+            list-style: none;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            margin: 2rem 0;
+        }
+        
+        .target-list li {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 0, 110, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #ff006e;
+        }
+        
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(45deg, #ff006e, #8a2be2);
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #000;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255, 0, 110, 0.3);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer h3 {
+            color: #ff006e;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer p {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom a {
+            color: #ff006e;
+            text-decoration: none;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .program-grid, .pricing-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .price-card.popular {
+                transform: none;
+            }
+            
+            .btn {
+                padding: 1.5rem 3rem;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="main-title">💥 5 побед с ИИ</h1>
+            <p class="subtitle">Марафон, где за 5 дней ты создаёшь систему, которая работает вместо тебя — от профиля до автоворонки.</p>
+            
+            <div class="hero-accent">
+                🚀 Старт - ПРЯМО СЕЙЧАС
+            </div>
+            
+            <div class="hero-subtext">
+                5 дней. 5 результатов. 0 отговорок.
+            </div>
+            
+            <a href="#pricing" class="btn">🔘 ВЗЯТЬ 5 ПОБЕД С ИИ</a>
+        </div>
+    </section>
 
-        document.addEventListener('DOMContentLoaded', () => {
-          ipx('decorateTelegramBotLinks', '.tg-bot-link');
+    <!-- What Is This Section -->
+    <section class="what-section">
+        <div class="container">
+            <h2 class="section-title">Что это</h2>
+            <div class="what-content">
+                <p>Не теория. Не курс на 2 месяца.</p>
+                <p>Это <strong>5 дней практики</strong>, после которых у тебя есть готовая система привлечения клиентов:</p>
+                <ul>
+                    <li>обновлённый профиль</li>
+                    <li>лид-магнит и мини-воронка</li>
+                    <li>контент-завод</li>
+                    <li>бот, который продаёт 24/7</li>
+                </ul>
+                <p>Всё делается с помощью ИИ — без технической боли и без прокрастинации.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="program-section">
+        <div class="container">
+            <h2 class="section-title">Программа марафона</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-day">День 1</div>
+                    <div class="program-title">Аудит профиля</div>
+                    <div class="program-description">Убираем хаос и оформляем профиль, который продаёт.</div>
+                    <div class="program-tools">🤖 ChatGPT, NaNoBanana, Gamma</div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-day">День 2</div>
+                    <div class="program-title">Анализ аудитории и конкурентов</div>
+                    <div class="program-description">Находим, что реально цепляет клиентов.</div>
+                    <div class="program-tools">🔍 ChatGPT, Perplexity</div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-day">День 3</div>
+                    <div class="program-title">Лид-магнит и мини-воронка</div>
+                    <div class="program-description">Настраиваем систему, которая собирает заявки автоматически.</div>
+                    <div class="program-tools">📈 ChatGPT, Gamma, ChatPlace</div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-day">День 4</div>
+                    <div class="program-title">Контент-завод</div>
+                    <div class="program-description">Строим потоковую систему контента, который продаёт.</div>
+                    <div class="program-tools">🎨 ChatGPT, NaNoBanana, Midjourney, HiggsField</div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-day">День 5</div>
+                    <div class="program-title">Бот на ИИ + VibeCoding</div>
+                    <div class="program-description">Создаём бота, который работает 24/7.</div>
+                    <div class="program-tools">🤖 ChatGPT, SendPulse, Manus</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">⚡ Реальные результаты участников</h2>
+            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.9;">
+                Участники уже за первую неделю увеличивают охваты, заявки и доход в 2–3 раза.
+            </p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-author">Анна К.</div>
+                    <div class="testimonial-result">+2700 подписчиков и 45 продаж за сутки</div>
+                    <p>"Это просто капец! Майя, ты волшебница! 🔥"</p>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">Дмитрий М.</div>
+                    <div class="testimonial-result">73 заявки за 48 часов</div>
+                    <p>"Тебе отдельный большущий респект за продвижение этой темы. Реально работает!"</p>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">Наталья С.</div>
+                    <div class="testimonial-result">Автоматизировала 80% процессов</div>
+                    <p>"Огромная благодарность за сегодняшний день. Вы буквально открыли дверь в новый мир возможностей! ✨"</p>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">Елена В.</div>
+                    <div class="testimonial-result">Доход ×3</div>
+                    <p>"Само обучение оно офигенное! Спасибо за интересную подачу и материал. Уже внедряю! 💪"</p>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">Сергей Р.</div>
+                    <div class="testimonial-result">5 новых клиентов уже в день 3</div>
+                    <p>"Не ожидал таких быстрых результатов. Система действительно работает!"</p>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">Полина Л.</div>
+                    <div class="testimonial-result">Поток заявок через ИИ-воронку</div>
+                    <p>"Перешла из рутины фрилансера к автоматическому потоку клиентов. Жизнь изменилась!"</p>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-author">Марина Д.</div>
+                    <div class="testimonial-result">+120 000 ₽ в месяц</div>
+                    <p>"Внедрила ИИ в контент-стратегию и вышла на новый уровень дохода. Спасибо, Майя!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Форматы участия</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>🔹 Бесплатный доступ</h3>
+                    <div class="price">БЕСПЛАТНО</div>
+                    <ul>
+                        <li>Только видео в рамках марафона (на 5 дней)</li>
+                        <li>Общий чат участников</li>
+                        <li>Без доступа к материалам, ссылкам и промптам</li>
+                        <li>Без участия в челлендже на $100</li>
+                    </ul>
+                    <a href="https://sbsite.pro//five_free_1" target="_blank" class="btn">УЧАСТВОВАТЬ БЕСПЛАТНО</a>
+                </div>
+                
+                <div class="price-card popular">
+                    <h3>🔸 Полный доступ</h3>
+                    <div class="price-old">70 $ (5 990 ₽)</div>
+                    <div class="price">990 ₽</div>
+                    <p style="margin-bottom: 2rem; font-style: italic;">Для тех, кто хочет результат, систему и поддержку — не на неделю, а навсегда.</p>
+                    <ul>
+                        <li>💡 Доступ на год ко всем видео и материалам</li>
+                        <li>🧠 Бессрочная поддержка даже после марафона</li>
+                        <li>🔗 Все ссылки, чек-листы, инструкции, профессиональные промпты</li>
+                        <li>🤖 Промпты для ChatGPT, NaNoBanana, Midjourney, SendPulse</li>
+                        <li>🏆 Участие в челлендже на $100</li>
+                        <li>🔒 VIP-чат и закрытые разборы</li>
+                        <li>♾️ Пожизненный доступ к записям</li>
+                    </ul>
+                    <p style="margin: 2rem 0; font-weight: 700; color: #ff006e;">
+                        📦 Окупается за первый заказ, который придёт через твою новую систему.
+                    </p>
+                    <a href="https://sbsite.pro//five_pay_1" target="_blank" class="btn">ВЗЯТЬ ПОЛНЫЙ ДОСТУП</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section class="target-section">
+        <div class="container">
+            <h2 class="section-title">Кому подойдёт марафон</h2>
+            <div class="target-content">
+                <ul class="target-list">
+                    <li>Маркетологам, таргетологам, продюсерам, SMM и экспертам</li>
+                    <li>Всем, кто хочет увеличить доход, сократить время на рутинные задачи и внедрить ИИ</li>
+                    <li>Тем, кто устал «гнаться» за клиентами и хочет, чтобы клиенты находили его сами</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>⚡ Старт - ПРЯМО СЕЙЧАС. Взять 5 побед с ИИ — и выйти на новый уровень.</h2>
+            <a href="#pricing" class="btn" style="background: white; color: #ff006e; margin-top: 2rem;">🔘 ПРИНЯТЬ УЧАСТИЕ</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Реквизиты ИП</h3>
+                    <p><strong>ИП:</strong> Галицкая Майя Вячеславовна</p>
+                    <p><strong>Адрес:</strong> 347927, Россия, Ростовская обл., г. Ростов-на-Дону, ул. Варфоломеева 274, кв. 9</p>
+                    <p><strong>ИНН:</strong> 615490332205</p>
+                    <p><strong>ОГРН:</strong> 320619600155953</p>
+                </div>
+                
+                <div>
+                    <h3>Банковские реквизиты</h3>
+                    <p><strong>Расчетный счет:</strong> 40802810300001648384</p>
+                    <p><strong>Банк:</strong> АО "ТИНЬКОФФ БАНК"</p>
+                    <p><strong>ИНН банка:</strong> 7710140679</p>
+                    <p><strong>БИК банка:</strong> 044525974</p>
+                    <p><strong>Корр. счет:</strong> 30101810145250000974</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>
+                    <a href="#">Политика конфиденциальности</a> | 
+                    <a href="#">Договор оферты</a>
+                </p>
+                <p style="margin-top: 1rem;">© 2025 ИП Галицкая Майя Вячеславовна. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('2025-11-10T10:00:00+03:00');
+            const now = new Date();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
-    <!-- End INOVA MEDIA Pixel Code -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEK115H2XQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-JEK115H2XQ');
-    </script>
-    <!-- End Google tag (gtag.js) -->
-    <script type="module" crossorigin src="/assets/index-CZW1VXn3.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BZJ1nFXQ.css">
-  </head>
-  <body>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=3757375884564612&ev=PageView&noscript=1"
-    /></noscript>
-    <div id="root"></div>
-  </body>
+</body>
 </html>
+
