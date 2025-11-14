@@ -351,59 +351,31 @@
         
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin: 4rem 0;
         }
         
         .testimonial {
-            background: linear-gradient(135deg, rgba(255, 0, 110, 0.08), rgba(138, 43, 226, 0.08));
-            padding: 3rem;
-            border-radius: 25px;
-            border-left: 5px solid #ff006e;
-            backdrop-filter: blur(15px);
+            background: transparent;
+            border-radius: 20px;
+            overflow: hidden;
             transition: all 0.3s ease;
             position: relative;
-        }
-        
-        .testimonial::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 4rem;
-            color: #ff006e;
-            opacity: 0.3;
-            font-family: serif;
+            border: 3px solid rgba(255, 0, 110, 0.3);
         }
         
         .testimonial:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.2);
-            border-left-color: #8a2be2;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 0, 110, 0.4);
+            border-color: #ff006e;
         }
         
-        .testimonial-author {
-            font-weight: 900;
-            color: #ff006e;
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-        }
-        
-        .testimonial-result {
-            color: #8a2be2;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            opacity: 0.9;
-            font-style: italic;
+        .testimonial img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 17px;
         }
         
         /* Pricing Section */
@@ -862,45 +834,27 @@
             
             <div class="testimonials-grid">
                 <div class="testimonial">
-                    <div class="testimonial-author">Анна К.</div>
-                    <div class="testimonial-result">+2700 подписчиков и 45 продаж за сутки</div>
-                    <div class="testimonial-text">Это просто капец! Майя, ты волшебница! 🔥</div>
+                    <img src="photo_2025-11-1418.47.35.jpeg" alt="Отзыв Alexandra">
                 </div>
                 
                 <div class="testimonial">
-                    <div class="testimonial-author">Дмитрий М.</div>
-                    <div class="testimonial-result">73 заявки за 48 часов</div>
-                    <div class="testimonial-text">Тебе отдельный большущий респект за продвижение этой темы. Реально работает!</div>
+                    <img src="photo_2025-11-1418.47.28.jpeg" alt="Отзыв Татьяна Спирова">
                 </div>
                 
                 <div class="testimonial">
-                    <div class="testimonial-author">Наталья С.</div>
-                    <div class="testimonial-result">Автоматизировала 80% процессов</div>
-                    <div class="testimonial-text">Огромная благодарность за сегодняшний день. Вы буквально открыли дверь в новый мир возможностей! ✨</div>
+                    <img src="photo_2025-11-1418.47.00.jpeg" alt="Отзыв Елена">
                 </div>
                 
                 <div class="testimonial">
-                    <div class="testimonial-author">Елена В.</div>
-                    <div class="testimonial-result">Доход ×3</div>
-                    <div class="testimonial-text">Само обучение оно офигенное! Спасибо за интересную подачу и материал. Уже внедряю! 💪</div>
+                    <img src="photo_2025-11-1418.47.06.jpeg" alt="Отзыв Елена - продолжение">
                 </div>
                 
                 <div class="testimonial">
-                    <div class="testimonial-author">Сергей Р.</div>
-                    <div class="testimonial-result">5 новых клиентов уже в день 3</div>
-                    <div class="testimonial-text">Не ожидал таких быстрых результатов. Система действительно работает!</div>
+                    <img src="photo_2025-11-1418.47.11.jpeg" alt="Отзыв о марафоне">
                 </div>
                 
                 <div class="testimonial">
-                    <div class="testimonial-author">Полина Л.</div>
-                    <div class="testimonial-result">Поток заявок через ИИ-воронку</div>
-                    <div class="testimonial-text">Перешла из рутины фрилансера к автоматическому потоку клиентов. Жизнь изменилась!</div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-author">Марина Д.</div>
-                    <div class="testimonial-result">+120 000 ₽ в месяц</div>
-                    <div class="testimonial-text">Внедрила ИИ в контент-стратегию и вышла на новый уровень дохода. Спасибо, Майя!</div>
+                    <img src="photo_2025-11-1418.47.21.jpeg" alt="Отзыв Venera Kasparova">
                 </div>
             </div>
         </div>
